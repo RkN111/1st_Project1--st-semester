@@ -1,23 +1,34 @@
 from datetime import datetime
-# мисля ,че въпросите и отговорите може би трябва да са на отделен файл за да не става натрупано???
+# current_time = datetime.now #no idea where to put this as of now
 quiz_questions_and_answers ={
-    'question1':{'What is the name of the current capital of Japan?':'Tokyo'},
-    'question2':{'What is the historical period between 300 to 538 AD called?':'Kofun'},
-    'question3':{'During which period was "Genji Monogatari" written in?': 'Heian'},
-    'question4':{'What is the translation of this kanji in English: 中国':'China'},
-    'question5':{'What is the translation of this word in English: ブルガリア':'Bulgaria'},
-    'question6':{'Which clan ruled Japan during the Edo period':'Tokugawa'},
-    'question7':{'What are the indigenous people living in Hokkaido called?':'ainu'},
-    'question8':{'In which city is Fushimi Inari Shrine?':'Kyoto',},
-    'question9':{'Who is the goddess of the sun in the Japanese mythology?':'Amaterasu'},
-    'question10':{'What era started on May 1st 2019?':'Reiwa'},
-    'question11':{'In which prefecture was Osamu Dazai born in?':'Aomori'},
-    'question12':{'In which year began the Meiji restoration?':'1868'}
+    '1.What is the name of the current capital of Japan?':'tokio',
+    '2.What is the historical period between 300 to 538 AD called?':'kofun',
+    '3.During which period was "Genji Monogatari" written in?': 'Heian',
+    '4.What is the translation of this kanji in English: 中国':'china',
+    '5.What is the translation of this word in English: ブルガリア':'bulgaria',
+    '6.Which clan ruled Japan during the Edo period':'Tokugawa',
+    '7.What are the indigenous people living in Hokkaido called?':'ainu',
+    '8.In which city is Fushimi Inari Shrine?':'kyoto',
+    '9.Who is the goddess of the sun in the Japanese mythology?':'amaterasu',
+    '10.What era started on May 1st 2019?':'reiwa',
+    '11.In which prefecture was Osamu Dazai born in?':'aomori',
+    '12.What era began in 1868?':'meiji'
     }
 score = 0
-# lives = 10???
+lives = 10
 name = input('Please, enter your name: ')
 print (f'''Hello, {name} and welcome to the quiz!
 The goal here is to answer 12 questions.
 You have 10 lives''')
-# for a in quiz_questions_and_answers
+for question, answer in quiz_questions_and_answers.items():
+    user_input = input(question + ': ').lower()
+    if user_input == answer.lower():
+        print('Correct! Keep going!')
+        score+=1
+    else:
+        print('Wrong answer!')
+        lives-=1
+        if lives ==0:
+            print('Quiz is over')
+
+print ('score=',score,'lives=',lives)
