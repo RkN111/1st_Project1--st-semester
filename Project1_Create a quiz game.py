@@ -11,6 +11,7 @@ You have 3 lives''')
 def start_game(name):
     score = 0
     lives = 3
+    starting_time = datetime.now()
     for question, answer in QandA.items():
         user_input = input(question + ': ').lower()
         if user_input == answer.lower():
@@ -22,8 +23,10 @@ def start_game(name):
             if lives == 0:
                 print('Quiz is over')
                 break
+    ending_time = datetime.now()
+    final_time = ending_time - starting_time
     print(f'{name}, here is your final score:\n'+'Score =', score, 'Lives =', lives)
-
+    print(final_time)
 def main():
     name = get_user_name()
     start_game(name)
