@@ -26,7 +26,7 @@ def start_game(name):
     ending_time = datetime.now()
     final_time = ending_time - starting_time
     print(f'{name}, here is your final score:\n'+'Score =', score, 'Lives =', lives)
-    print(final_time)
+    print(f'Taking the quiz too you: {final_time}')
 def main():
     name = get_user_name()
     start_game(name)
