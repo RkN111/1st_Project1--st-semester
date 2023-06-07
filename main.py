@@ -1,5 +1,5 @@
 from datetime import datetime
-from lib_questions_and_answers import quiz_questions_and_answers as QandA
+from lib.lib_questions_and_answers import quiz_questions_and_answers as QandA
 
 def get_user_name():
     name = input('Please, enter your name: ')
